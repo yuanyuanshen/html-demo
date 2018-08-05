@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <button id="btn1">测试跨域</button>
+    <div id="content"></div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $.get("/api/v2/book/1220562",function(data,status){
+                alert("数据: " + JSON.stringify(data)+ "\n状态: " + status);
+                $("#content").html(JSON.stringify(data))
+            });
+        });
+    });
+</script>
+</body>
+</html>
